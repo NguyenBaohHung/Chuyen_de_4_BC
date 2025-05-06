@@ -150,7 +150,7 @@ const Header = (props) => {
                 </Modal.Header>
                 <Modal.Body>
                     <p>Chào bạn, hãy đăng ký hội viên để tận hưởng các quyền lợi đặc biệt!</p>
-                    <p><strong>Giá: 199.000 VND / năm</strong></p>
+                    <p><strong>Giá: 0.0005 SepoliaETH </strong></p>
                     <Button variant="success" onClick={handleClickPayment}>
                         Thanh toán và đăng ký
                     </Button>

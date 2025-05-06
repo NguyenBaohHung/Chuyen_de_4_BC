@@ -88,7 +88,7 @@ function Trantision() {
                                             <th>Ghi chú</th>
                                             <th>Số điện thoại</th>
                                             <th>Khách hàng</th>
-                                            <th>Bất động sản</th>
+
 
 
                                             <th>Hành Động</th>
@@ -101,15 +101,26 @@ function Trantision() {
                                             return (
                                                 <tr>
                                                     <td>{index + 1}</td>
-                                                    <td>{data.note}</td>
+                                                    <td>
+                                                        <a
+                                                            href={`https://sepolia.etherscan.io/tx/${data.note}`}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                        >
+                                                            {data.note}
+                                                        </a>
+                                                    </td>
+
                                                     <td>{data.userPhone}</td>
                                                     <td>{data.userName}</td>
-                                                    <td>{data.buildingName}</td>
+
 
 
                                                     <th>
 
-                                                        <button onClick={() => handleDelete(data.transactionId)} className='btn btn-danger btn-sm mr-1'>Delete</button>
+                                                        <button onClick={() => handleDelete(data.transactionId)}
+                                                                className='btn btn-danger btn-sm mr-1'>Delete
+                                                        </button>
                                                     </th>
                                                 </tr>
                                             )

@@ -26,5 +26,7 @@ public interface IBuildingService {
     HomeBuildingSearchResponse getDetailBuilding(Integer id);
 
     List<HomeBuildingSearchResponse> getAllBuildingDashBoard(Pageable pageable);
+
+    APIPageableDTO getBuildingsByUser(Pageable pageable);
 //    Map<String,Object> searchBuilding(HomeBuildingSearchRequest request,Pageable pageable);
 }

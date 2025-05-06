@@ -81,7 +81,7 @@ function Sidebar() {
                 <Link className="nav-link" to="/portal/trantision-list" >
 
                     <FontAwesomeIcon icon={faCashRegister} style={{ marginRight: "0.5rem" }} />
-                    <span>Giao dịch</span>
+                    <span>Đăng ký hội viên</span>
                 </Link>
 
             </li>

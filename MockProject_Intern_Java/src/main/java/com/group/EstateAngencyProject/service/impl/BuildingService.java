@@ -9,10 +9,12 @@ import com.group.EstateAngencyProject.dto.response.HomeBuildingSearchResponse;
 import com.group.EstateAngencyProject.entity.BuildingEntity;
 import com.group.EstateAngencyProject.entity.CategoryEntity;
 import com.group.EstateAngencyProject.entity.TransactionEntity;
+import com.group.EstateAngencyProject.entity.UserEntity;
 import com.group.EstateAngencyProject.repository.BuildingRepository;
 import com.group.EstateAngencyProject.repository.CategoryRepository;
-import com.group.EstateAngencyProject.repository.TransactionRepository;
+import com.group.EstateAngencyProject.repository.UserRepository;
 import com.group.EstateAngencyProject.service.IBuildingService;
+import com.group.EstateAngencyProject.utils.SecurityUtils;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -31,6 +33,7 @@ public class BuildingService implements IBuildingService {
     private final HomeBuildingSearchConverter homeBuildingSearchConverter;
     private final BuildingConverter buildingConverter;
     private final CategoryRepository categoryRepository;
+    private final UserRepository userRepository;
 
 
     public Page<HomeBuildingSearchResponse> searchBuildings(HomeBuildingSearchRequest request, Pageable pageable) {
@@ -110,6 +113,19 @@ public class BuildingService implements IBuildingService {
     public List<HomeBuildingSearchResponse> getAllBuildingDashBoard(Pageable pageable) {
         Page<BuildingEntity> buildingEntityPage = findAllBuilding(pageable);
         return buildingEntityPage.stream().map(homeBuildingSearchConverter::toBuildingSearchResponse).collect(Collectors.toList());
+    }
+
+    @Override
+    public APIPageableDTO getBuildingsByUser(Pageable pageable) {
+        String userName = SecurityUtils.getPrincipal();
+        UserEntity userEntity = userRepository.findByUserNameAndIsActive(userName, true).get();
+        Page<BuildingEntity> buildingEntityPage = buildingRepository.findByUserEntityListContaining(userEntity, pageable);
+        List<HomeBuildingSearchResponse> contents = buildingEntityPage.stream()
+                .map(homeBuildingSearchConverter::toBuildingSearchResponse)
+                .collect(Collectors.toList());
+        APIPageableDTO apiPageableDTO = new APIPageableDTO();
+        apiPageableDTO.responsePageBuilder(buildingEntityPage, contents);
+        return apiPageableDTO;
     }
 
 //    @Override

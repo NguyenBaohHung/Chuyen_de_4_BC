@@ -61,4 +61,16 @@ public class BuildingController {
         Pageable pageable = PageRequest.of(page,pageSize, Sort.by(sortBy));
         return APIResponse.responseBuilder(HttpStatus.OK,GlobalMessage.SUCCESS,buildingService.getAllBuildingDashBoard(pageable));
     }
+
+    @GetMapping("/my-buildings")
+    public ResponseEntity<Object> getMyBuildings(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size,
+            @RequestParam(defaultValue = "buildingId") String sortBy,
+            @RequestParam(defaultValue = "desc") String sortDir) {
+        Sort sort = sortDir.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortBy).ascending()
+                : Sort.by(sortBy).descending();
+        Pageable pageable = PageRequest.of(page, size, sort);
+        return APIResponse.responseBuilder(HttpStatus.OK, GlobalMessage.SUCCESS, buildingService.getBuildingsByUser(pageable));
+    }
 }
