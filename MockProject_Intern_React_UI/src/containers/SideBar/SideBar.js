@@ -51,7 +51,7 @@ const SideBar = () => {
 
                 <div className="footer">
                     <p>Copyright &copy; 2024 - Bản quyền của nhà hàng OngLei.</p>
-                    <p>Được thiết kế và cung cấp bởi <a target="_blank" href="https://www.facebook.com/profile.php?id=100089328951211" rel="noreferrer">N_Crafters</a></p>
+                    <p>Được thiết kế và cung cấp bởi <a target="_blank" href="https://www.facebook.com/NguyenBaoHung020103/?locale=vi_VN" rel="noreferrer">N_Crafters</a></p>
                 </div>
 
             </div>

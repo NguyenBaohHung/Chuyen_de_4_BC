@@ -90,7 +90,7 @@ public class UserService implements IUserService {
         userEntity.setPassword(hashPwd);
 
         // Gán Role cho người dùng (role có thể được thay đổi tại đây, ví dụ: cho phép đăng bài)
-        RoleEntity roleEntity = roleRepository.findById(2).get(); // Giả sử role với id 2 là role cho phép đăng bài
+        RoleEntity roleEntity = roleRepository.findById(3).get(); // Giả sử role với id 2 là role cho phép đăng bài
         userEntity.setRole(roleEntity);
 
         // Lưu người dùng vào database

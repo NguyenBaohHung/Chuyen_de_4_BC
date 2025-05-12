@@ -87,7 +87,7 @@ function Userlist() {
                           user.roleId = "Quản Lý";
                           break;
                         case 2:
-                          user.roleId = "Nhân Viên";
+                          user.roleId = "Hội viên";
                           break;
                         case 3:
                           user.roleId = "Khách Hàng";

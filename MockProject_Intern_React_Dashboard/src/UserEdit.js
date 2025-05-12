@@ -133,7 +133,7 @@ function UserEdit() {
                             >
                                 <option value="">----Chọn----</option>
                                 <option value="1">Quản Lý</option>
-                                <option value="2">Nhân Viên</option>
+                                <option value="2">Hội viên</option>
                                 <option value="3">Khách Hàng</option>
                             </select>
                         </div>

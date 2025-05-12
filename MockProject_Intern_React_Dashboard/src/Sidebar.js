@@ -77,14 +77,18 @@ function Sidebar() {
 
                 </li>
             ) : (<li></li>)}
+
+            {role == "ROLE_MANAGER" ? (
             <li className="nav-item active">
                 <Link className="nav-link" to="/portal/trantision-list" >
 
                     <FontAwesomeIcon icon={faCashRegister} style={{ marginRight: "0.5rem" }} />
-                    <span>Đăng ký hội viên</span>
+                    <span>Giao dịch</span>
                 </Link>
 
+
             </li>
+            ) : (<li></li>)}
             <li className="nav-item active">
                 <Link className="nav-link" to="" onClick={logOut}>
 

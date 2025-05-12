@@ -150,16 +150,20 @@ const Header = (props) => {
                 </Modal.Header>
                 <Modal.Body>
                     <p>Chào bạn, hãy đăng ký hội viên để tận hưởng các quyền lợi đặc biệt!</p>
+                    <p>Các quyền lợi đặc biệt: </p>
+                    <p>- Đăng các tin tức về bất động sản của bạn. </p>
+                    <p>- Được đội ngũ của chúng tôi tư vấn chi tiết. </p>
+                    <p>- Hỗ trợ nhanh chóng 24/7. </p>
                     <p><strong>Giá: 0.0005 SepoliaETH </strong></p>
+                </Modal.Body>
+                <Modal.Header>
                     <Button variant="success" onClick={handleClickPayment}>
                         Thanh toán và đăng ký
                     </Button>
-                </Modal.Body>
-                <Modal.Footer>
                     <Button variant="secondary" onClick={handleCloseMembership}>
                         Hủy
                     </Button>
-                </Modal.Footer>
+                </Modal.Header>
             </Modal>
 
             <div className={isScrollTop ? 'header_content scrollTop' : 'header_content unScrollTop'}>
